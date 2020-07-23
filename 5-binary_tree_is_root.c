@@ -10,7 +10,8 @@ int binary_tree_is_root(const binary_tree_t *node)
 {
 	if (node && !node->parent)
 	{
-		if (node->left->parent == node && node->right->parent == node)
+		if ((node->left->parent == node || !node->left)
+				&& (node->right->parent == node || !node->right))
 			return (1);
 	}
 	return (0);
